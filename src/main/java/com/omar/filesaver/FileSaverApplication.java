@@ -97,7 +97,7 @@ class ProductController {
 	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-		Path fpath = rootLocation.resolve("0e09abec-3feb-48a4-aeef-309481afee6c.JPG");
+		Path fpath = rootLocation.resolve(filename);
 		try {
 			Resource file = new UrlResource(fpath.toUri());
 			return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
